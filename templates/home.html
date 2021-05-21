@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div><h1>HI GUYS!</h1></div>
+
+<div class = 'intro'>
+  <p>
+    So basically I got bored and I'm like "I love my friends". So I made this website!
+  </p>
+</div>
+
+<div class = 'everybody'>
+  {% for friend in friends %}
+  <div class = 'person'>
+    <a href='/friend/{{ friend[0] }}'>
+    <img src='{{ friend[5]}}'>
+    {{ friend[1] }}
+    </a>
+  </div>
+  
+  {% endfor %}
+</div>
+{% endblock %}
+
+

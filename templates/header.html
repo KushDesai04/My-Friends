@@ -1,0 +1,14 @@
+{% if page == "Home"%}
+<div class = "title">
+	<h1>Game of the Year Awards - 2019</h1>
+</div>
+{% elif page == "Winner"%}
+<div class = "title">
+	<h1>Game of the Year</h1>
+	<h1>Sekiro: Shadows Die Twice</h1>
+</div> <!-- Title div -->
+{% else %}
+<div class = "title">
+	<h1>{{page}}</h1>
+</div>
+{% endif %}
