@@ -3,24 +3,35 @@
 <div class = 'friend'>
   <h1>{{ friend[1] }}</h1>
   <p>Birthday: {{friend[6]}}</p>
+  <br>
   <img src = '{{ friend[5] }}' style="align-self:center;">
+  <br>
+
+  <div class = "text">
   <p>
     {{friend[2]}}
   </p>
+  </div>
 
 <br>
 
 <form class = 'password' method="POST">
   <label>Password: </label>
   <input type ='password' name = 'password'>
-  
+  <input type = 'submit' value='Enter'>
 </form>
 
 <br>
 
-<p>
-  {{hidden}}
-</p>
+{% if hidden %}
+
+  <div class = "text">
+  <p>
+    {{hidden}}
+  </p>
+  </div>
+
+{% endif %}
   
 </div>
 {% endblock %}

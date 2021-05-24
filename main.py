@@ -32,7 +32,7 @@ def connect(query, val = tuple(''), single = False):
 
 @app.route('/')
 def home():
-    friends = connect('SELECT * FROM Friend')
+    friends = connect('SELECT * FROM Friend ORDER BY name ASC')
     return render_template('home.html', friends=friends)
 
 
@@ -43,13 +43,17 @@ def friend(id):
     friend = connect(q, val, single = True)
     print(friend)
     hidden = [""]
+
     if request.method == "POST":
       password = request.form['password']
+      print(password)
+      
       authentication = connect('SELECT password FROM Friend WHERE id = ?', (id,), single=True)
       print(authentication)
       if password == authentication[0]:
         hidden = connect('SELECT message from Friend WHERE id = ?', (id,), single=True)
         print(hidden)
+
     return render_template('friend.html', friend = friend, hidden = hidden[0])
 
 
